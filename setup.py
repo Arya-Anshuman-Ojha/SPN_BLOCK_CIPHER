@@ -1,18 +1,21 @@
 import numpy as np
 import random
 import pickle
+from utils import *
+
+block_size=9
+NumberOfRounds=5
 
 #CREATING THE PERMUTATION MATRIX====================================
-block_size=9
 rng=np.random.default_rng()
 P=rng.permutation(np.eye(block_size))
 
 #CREATING THE ROUND KEY=============================================
-key1=random.randint(0,2**(block_size))
-key1=bin(key1)[2:].zfill(block_size)
-key2=random.randint(0,2**(block_size))
-key2=bin(key2)[2:].zfill(block_size)
-key=(key1,key2)
+key=[]
+for i in range(0,NumberOfRounds):
+    k=random.randint(0,2**(block_size))
+    k=bin(k)[2:].zfill(block_size)
+    key.append(k)
 
 #CREATING THE SUBSTITUTION LOOK-UP TABLE============================
 table=dict()
