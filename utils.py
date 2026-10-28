@@ -69,6 +69,7 @@ encode={
 
 #==============================================================================
 
+NumberOfRounds=5
 block_size_ende=6
 block_size_crypt=9
 
